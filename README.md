@@ -1,2 +1,2 @@
 # ifcode
-Aplicativo de compate a fome desenvolvido no hackaton do IFCODE
+Aplicativo de combate a fome desenvolvido no hackaton do IFCODE
