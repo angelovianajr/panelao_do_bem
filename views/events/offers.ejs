@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/plugins/bootstrap.css">
+    <link rel='stylesheet' href='/css/stylesheets/style.css' />
+</head>
+
+<body>
+    <section class="container">
+        <h1>
+            <%= title %>
+        </h1>
+        <p>Welcome to
+            <%= title %>
+        </p>
+        <form class="form-register-event">
+            <div class="form-group">
+                <label for="Title">Título</label>
+                <input type="text" class="form-control" name="title" id="Title" placeholder="Título">
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="form-control latitude" name="coordinates[]" placeholder="Coordenadas">
+                <input type="hidden" class="form-control longitude" name="coordinates[]" placeholder="Coordenadas">
+            </div>
+            <button class="btn btn-default">Enviar</button>
+        </form>
+    </section>
+    <div id="map"></div>
+    <button class="sent">Enviar</button>
+    <script src="/js/plugins/jquery.js"></script>
+    <script src="/js/plugins/bootstrap.js"></script>
+    <script src="/js/scripts/events.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6pcTd1d77aHPU596ktdbvUz-SHH9cphE&callback=initMap">
+    </script>
+</body>
+
+</html>
