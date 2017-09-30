@@ -32,12 +32,14 @@ html, body {
 
 .title.title-info {
   font-family: 'Indie Flower', cursive;  
-  margin: 20px 35%;
+  margin: 30px 20%;
   font-size: 22px;
 }
 
-.footer {
-  background-color: #830506;
+@media(max-width: 720px) {
+  .image-logo {
+    height: 200px;
+  }
 }
 
 .footer-title {
@@ -51,5 +53,6 @@ html, body {
 }
 
 .btn.btn-danger {
+  font-family: 'Indie Flower', cursive;
   background-color: #830506;
 }
