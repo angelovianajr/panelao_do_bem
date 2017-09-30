@@ -16,7 +16,7 @@ var eventSchema = new mongoose.Schema({
         }],
         offers: [mongoose.Schema.Types.ObjectId]
     }],
-});
+}, { minimize: false});
 
 // Cria um model com o schema par ao uso
 var Event = mongoose.model('Event', eventSchema);
