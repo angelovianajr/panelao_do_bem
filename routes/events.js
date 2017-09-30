@@ -6,6 +6,7 @@ var Product = require('../models/product');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   res.render('events/index', { title: 'Eventos' });
 });
 
@@ -16,7 +17,7 @@ router.get('/register', function(req, res, next) {
 
 /* POST register events. */
 router.post('/', function(req, res, next) {
-
+  console.log(req.body);
   var event = new Event({
     title: req.body.title,
     location: [req.body.coordinates]
