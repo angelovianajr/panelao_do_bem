@@ -10,10 +10,6 @@ router.get('/', function(req, res, next) {
   res.render('events/index', { title: 'Eventos' });
 });
 
-router.get('/recipes', function(req, res, ext){
-  res.render('events/recipes', { title: 'Recipes' })
-})
-
 /* GET home page. */
 router.get('/register', function(req, res, next) {
   res.render('events/register', { title: 'Eventos' });
@@ -35,7 +31,12 @@ router.post('/', function(req, res, next) {
       user.save(function(err) {
         if(err)
           return res.status(400).json(err);
+<<<<<<< HEAD
         res.status(200).json({ msg: "ok", id: event._id })
+=======
+        
+        res.status(200).json({ event: ev, msg: "ok" })
+>>>>>>> ecb457a75a472e160d3063e1f05d63a3cbc126cb
       });
     });
   });
@@ -65,16 +66,18 @@ router.get('/events-by-user', function(req, res, next) {
   })
 });
 
-router.get('/:id/recipe', function(req, res, next) {
+router.get('/:id/recipes', function(req, res, next) {
   Event.findById(req.params.id, function(err, event) {
-    console.log(event);
     res.render('events/recipes', { title: 'Eventos - Receitas', recipe: event.recipe, eventId: req.params.id });
   });
 });
 
 /* POST recipe register. */
 router.post('/:id/recipes', function(req, res, next) {
+<<<<<<< HEAD
   
+=======
+>>>>>>> ecb457a75a472e160d3063e1f05d63a3cbc126cb
   Event.findById(req.params.id, function(err, ev){
     if(req.body.recipe) {
       ev.recipe.name = req.body.recipe.name;
@@ -82,6 +85,8 @@ router.post('/:id/recipes', function(req, res, next) {
         if(err) {
           console.log(err);
           res.status(400).json({ msg: 'Problema ao salvar receita.' })
+        } else {
+          return res.status(200).json(req.body.recipe)
         }
       })
     } else {
@@ -92,16 +97,34 @@ router.post('/:id/recipes', function(req, res, next) {
 
 /* POST offers register. */
 router.post('/:id/offers', function(req, res, next) {
+<<<<<<< HEAD
   User.findById(req.params.id, function(err, user) {
     if(user) {
     }
   })
   res.status(201).json('Oferta criada');
+=======
+  Event.findById(req.params.id, function(err, ev){
+    if (ev.recipe.length == 0) {
+      ev.recipe = {};
+    }
+    if(req.body.ofertas) {
+      ev.recipe.offers = req.body.recipe.offers;
+    }
+    console.log(ev);
+    ev.save(function(err) {
+      if(err) {
+        console.log(err);
+        res.status(400).json({ msg: 'Problema ao salvar receita.' })
+      }
+    });
+  });
+>>>>>>> ecb457a75a472e160d3063e1f05d63a3cbc126cb
 });
 
 /* GET offers by ML. */
 router.get('/:id/offers', function(req, res, next) {
-  res.status(200).json('Ofertas mockadas');
+  res.render('events/offers', { title: 'Eventos - Ofertas', eventId: req.params.id })
 });
 
 router.get('/map', function(req, res, next) {
