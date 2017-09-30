@@ -54,8 +54,8 @@ router.get('/products', function(req, res, next) {
 })
 
 /* GET list user events. */
-router.get('/:id', function(req, res, next) {
-  User.findById(req.params.id, function(err, user) {
+router.get('/events-by-user', function(req, res, next) {
+  User.findById(req.session.user, function(err, user) {
     if(user) {
       Event.find({_id: {$in: user.events}}, function(err, ev) {
         res.status(200).json(ev);
