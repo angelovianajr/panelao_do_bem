@@ -40,11 +40,7 @@ app.use(session({
 app.use('/', index);
 
 app.use('/users', users);
-<<<<<<< HEAD
-//app.use(authMiddl);
-=======
-// app.use(authMiddl);
->>>>>>> ecb457a75a472e160d3063e1f05d63a3cbc126cb
+app.use(authMiddl);
 app.use('/events', events);
 app.use('/drivers', drivers);
 
