@@ -6,6 +6,6 @@ var productSchema = new mongoose.Schema({
 });
 
 // Cria um model com o schema par ao uso
-var product = mongoose.model('Product', productSchema);
+var Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
