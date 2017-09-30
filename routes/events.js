@@ -77,6 +77,8 @@ router.post('/:id/recipes', function(req, res, next) {
         if(err) {
           console.log(err);
           res.status(400).json({ msg: 'Problema ao salvar receita.' })
+        } else {
+          return res.status(200).json(req.body.recipe)
         }
       })
     } else {
