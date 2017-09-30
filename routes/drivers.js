@@ -11,7 +11,7 @@ router.get('/register', function(req, res, next) {
 /* GET POST available drivers. */
 router.route('/')
     .get( function(req, res, next) {
-        Driver.find(function(err, driver) {
+        Driver.find( { city: req.query.city }, function(err, driver) {
             if(driver.length) {
                 res.status(200).json(driver);                    
             } else {

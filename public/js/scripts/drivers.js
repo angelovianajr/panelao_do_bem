@@ -43,8 +43,6 @@ function register(event) {
             );
         });
     });
-
-    
 }
 
 function showMessage(type, text) {
