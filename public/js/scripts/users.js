@@ -5,16 +5,24 @@ $(function() {
 
 var login = function(event) {
     event.preventDefault();
+
+    var that = $(this);
+
     cleanMessages();
     $.ajax({
         url: "/users/login",
         type: "POST",
-        data: $(this).serialize()
+        data: $(this).serialize(),
+        beforeSend: () => {
+            that.css("pointer-events", 'none').css("opacity", "0.4");
+        }
     }).done(function(){
         window.location = "/events";
     }).fail(function(res) {
         showMessage("danger", res.msg);
-    })
+    }).always(function(){
+        that.css("pointer-events", 'auto').css("opacity", "1");        
+    });
 }
 
 var register = function(event) {
