@@ -21,7 +21,6 @@ app.set('port', port);
  * Set database connection with mongo.
  */
 var dbConfigUrl = config.db;
-// mongoose.connect('mongodb://localhost:27017/admin');
 mongoose.connect(dbConfigUrl);
 
 
