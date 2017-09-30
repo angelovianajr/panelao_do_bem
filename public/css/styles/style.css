@@ -42,10 +42,6 @@ html, body {
   }
 }
 
-.footer {
-  background-color: #830506;
-}
-
 .footer-title {
   float: right;
   color: #f4f4f4;
@@ -57,5 +53,6 @@ html, body {
 }
 
 .btn.btn-danger {
+  font-family: 'Indie Flower', cursive;
   background-color: #830506;
 }
