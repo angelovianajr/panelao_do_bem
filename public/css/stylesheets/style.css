@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.ingredientes tr td {
+  padding: 5px;
+  background: #eee;
+}
+
+.ingredientes tr:nth-child(odd) td {
+  background: #ddd;
+}
+
+.ingredientes td.quantidade {
+  width: 150px;
+}
