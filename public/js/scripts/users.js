@@ -19,7 +19,10 @@ var login = function(event) {
     }).done(function(){
         window.location = "/events";
     }).fail(function(res) {
-        showMessage("danger", res.msg);
+        var errors = JSON.parse(res.responseText);
+        errors.forEach(function(error) {
+            showMessage("danger", error.msg);
+        }, this);
     }).always(function(){
         that.css("pointer-events", 'auto').css("opacity", "1");        
     });

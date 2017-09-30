@@ -8,24 +8,36 @@
 <link rel="icon" type="image/png" href="/logo.png" />    
     <link rel="stylesheet" href="/css/plugins/bootstrap-cosmo.css">
     <link rel='stylesheet' href='/css/styles/register.css' />
+    <meta name="viewport" content="width=device-width, user-scalable=no">    
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">    
 </head>
 
 <body>
     <section class="container">
         <div class="row">
+            <img src="/logo.png" class="image-logo"/>
             <form class="form-register col-sm-6 col-sm-offset-3">
                 <h1><%= title %></h1>
                 <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="email" class="form-control" name="email" id="Email" placeholder="Email">
+                    <label for="Email">E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="email" class="form-control" name="email" id="Email" placeholder="exemplo@gmail.com">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="Name">Nome</label>
-                    <input type="text" class="form-control" name="name" id="Name" placeholder="Nome">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                        <input type="text" class="form-control" name="name" id="Name" placeholder="João da Silva">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="Password">Senha</label>
-                    <input type="password" class="form-control" name="password" id="Password" placeholder="Senha">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" name="password" id="Password" placeholder="********">
+                    </div>
                 </div>
                 <button class="btn btn-default">Enviar</button>
             </form>
