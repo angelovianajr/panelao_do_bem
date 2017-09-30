@@ -13,8 +13,8 @@ router.get('/signup', function(req, res, next) {
 
 /* POST user register. */
 router.post('/register', function(req, res, next) {
-  req.body;
-  res.sendStatus(200)
+  console.log(req.body);
+  res.sendStatus(201)
 });
 
 module.exports = router;
