@@ -83,9 +83,4 @@ router.get('/:id/offers', function(req, res, next) {
   res.status(200).json('Ofertas mockadas');
 });
 
-/* GET offers by ML. */
-router.get('/:id/drivers', function(req, res, next) {
-  res.status(200).json('Motoristas mockados');
-});
-
 module.exports = router;
