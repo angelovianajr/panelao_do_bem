@@ -9,7 +9,8 @@ function sendTitleAndLocation(event) {
         type: "POST",
         data: $('.form-register-event').serialize()
     }).done(function(res){
-        console.log(res);
+        alert(res.id);
+        localStorage.setItem('id_event', res.id);
         window.location.replace("recipes");
         
     }).fail(function(res) {

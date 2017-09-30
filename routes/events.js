@@ -27,8 +27,8 @@ router.post('/', function(req, res, next) {
 
   event.save(function(err, ev) {
     if(err) res.status(400).json(err);
-
-    User.findById('59cefb0f537c562d1b221f29', function(err, user) {
+    var id = '59cefb0f537c562d1b221f29';
+    User.findById(id, function(err, user) {
       if(!user) {
         return res.status(404).json({ msg: 'Usuário não existente.'})
       }
@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
         if(err) 
           return res.status(400).json(err);
 
-        res.status(200).json({ msg: "ok" })
+        res.status(200).json({ msg: "ok", id: id })
       });
     });
   });
