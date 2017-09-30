@@ -7,6 +7,11 @@ router.get('/login', function(req, res, next) {
   res.render('users/login', { title: 'Login' });
 });
 
+router.get('/register', function(req, res, next) {
+  res.render('users/register', { title: 'Registro' });
+});
+
+
 /* GET signup layout. */
 router.get('/signup', function(req, res, next) {
   res.render('users/signup', { title: 'Cadastro' });
@@ -24,5 +29,6 @@ router.post('/register', function(req, res, next) {
     if(res) res.sendStatus(404);
   })
 });
+
 
 module.exports = router;
