@@ -37,12 +37,23 @@ html, body {
 }
 
 .footer {
-  height: 150px;
-  margin-top: 100px;
+  position: absolute;
+  bottom: 0;
+  padding-top: 50px;
+  width: 100%;
   background-color: #830506;
+}
+
+.footer-title {
+  float: right;
+  color: #f4f4f4;
 }
 
 .button-start {
   margin-top: 10px;
   width: 200px;
+}
+
+.btn.btn-danger {
+  background-color: #830506;
 }
