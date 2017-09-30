@@ -9,7 +9,13 @@ router.get('/register', function(req, res, next) {
 })
 /* GET register drivers */
 router.get('/list', function(req, res, next) {
-    res.render('events/drivers', { Title: 'Lista de Motoristas'})
+   Driver.find({},function(err, docs) {
+       res.status(200).json(docs);
+   });
+})
+
+router.get('/drivers', function(req, res, next){
+    res.render('events/drivers', { Title: "Drivers"})
 })
 
 /* GET POST available drivers. */

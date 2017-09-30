@@ -1,5 +1,4 @@
 $(function() {
-    listDrivers();
     $('.form-register').on("submit", register);
 })
 
@@ -21,17 +20,16 @@ function register(event) {
                         if (results[0]) {
                             var add= results[0].formatted_address ;
                             var value = add.split(",");
-        
                             count = value.length;
                             city = value[count-2];
-                            $('input[name=city]').val(city)
-                            
+                            $('input[name=city]').val(city);
+                            var id = localStorage.getItem('id_event');
                             $.ajax({
-                                url: "/drivers/",
+                                url: id+"/offers/",
                                 type: "POST",
                                 data: $('.form-register').serialize()
                             }).done(function() {
-                                showMessage("success", "Sucesso ao registrar motorista" )
+                                showMessage("success", "Sucesso ao registrar oferta" )
                             }).fail(function(res) {
                                 var mensages = JSON.parse(res.responseText);
                                 mensages.forEach(function(mensage) {
@@ -45,20 +43,3 @@ function register(event) {
         });
     });
 }
-
-function listDrivers(event) {
-    $.get("list", {}, function(res) {
-        res.forEach(function(element) {
-            $('.drivers').append("<li><h3>"+element.name+"</h3><br><p>"+element.cell+"</p><br><p>"+element.city+"</li>");
-        }, this);        
-    })
-}  
-
-function showMessage(type, text) {
-    $('body').prepend("<div class='alert alert-"+ type +"' role='alert'>" + text + "</div>")
-};
-
-function cleanMessages() {
-    $('.alert').remove();
-};
-

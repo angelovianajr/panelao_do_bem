@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Event = require('../models/event');
 var User = require('../models/user');
+var Offer = require('../models/offer');
 var Product = require('../models/product');
 
 /* GET home page. */
@@ -42,9 +43,9 @@ router.post('/', function(req, res, next) {
 
 /* GET products */
 router.get('/products', function(req, res, next) {
-  Product.find(function(err, prod) {
-    if(prod.length) {
-      res.status(200).json(prod);
+  Product.find(function(err, produto) {
+    if(produto.length) {
+      res.status(200).json(produto);
     } else {
       res.status(404).json({ msg: 'Nenhum produto encontrado.' })
     }
@@ -52,8 +53,8 @@ router.get('/products', function(req, res, next) {
 })
 
 /* GET list user events. */
-router.get('/:id/listUsers', function(req, res, next) {
-  User.findById(req.params.id, function(err, user) {
+router.get('/events-by-user', function(req, res, next) {
+  User.findById(req.session.user, function(err, user) {
     if(user) {
       Event.find({_id: {$in: user.events}}, function(err, ev) {
         res.status(200).json(ev);
@@ -65,12 +66,9 @@ router.get('/:id/listUsers', function(req, res, next) {
 });
 
 router.get('/:id/recipe', function(req, res, next) {
-  User.findById('59cefb0f537c562d1b221f29', function(err, user) {
-    if(!user) {
-      return res.status(404).json({ msg: 'Usuário não existente.'})
-    }
-
-    res.render('events/recipes', { title: 'Eventos - Receitas', recipe: user.recipe, eventId: req.params.id });
+  Event.findById(req.params.id, function(err, event) {
+    console.log(event);
+    res.render('events/recipes', { title: 'Eventos - Receitas', recipe: event.recipe, eventId: req.params.id });
   });
 });
 
@@ -78,26 +76,27 @@ router.get('/:id/recipe', function(req, res, next) {
 router.post('/:id/recipes', function(req, res, next) {
   
   Event.findById(req.params.id, function(err, ev){
-    if(req.body) {
-      ev.recipe = req.body;
+    if(req.body.recipe) {
+      ev.recipe.name = req.body.recipe.name;
       ev.save(function(err) {
         if(err) {
-          return res.status(400).json({ msg: 'Problema ao salvar receita.' })
+          console.log(err);
+          res.status(400).json({ msg: 'Problema ao salvar receita.' })
         }
       })
     } else {
       return res.status(400).json({ msg: 'Campo de receitas inválido.' })
     }
-
-    return res.render('events/offers', { title: 'Eventos - Ofertas' })
   })
 });
 
 /* POST offers register. */
 router.post('/:id/offers', function(req, res, next) {
+  User.findById(req.params.id, function(err, user) {
+    if(user) {
+    }
+  })
   res.status(201).json('Oferta criada');
-
-  res.render('events/drivers', { title: 'Eventos - Motoristas' })
 });
 
 /* GET offers by ML. */

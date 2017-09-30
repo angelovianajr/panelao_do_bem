@@ -19,3 +19,7 @@ a {
 .ingredientes td.quantidade {
   width: 150px;
 }
+
+.drivers li {
+  list-style: none;
+}
