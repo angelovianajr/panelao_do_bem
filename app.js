@@ -39,7 +39,7 @@ app.use(session({
 app.use('/', index);
 
 app.use('/users', users);
-app.use(authMiddl);
+// app.use(authMiddl);
 app.use('/events', events);
 app.use('/drivers', drivers);
 

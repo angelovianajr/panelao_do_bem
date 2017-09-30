@@ -92,14 +92,26 @@ router.post('/:id/recipe', function(req, res, next) {
 
 /* POST offers register. */
 router.post('/:id/offers', function(req, res, next) {
-  res.status(201).json('Oferta criada');
-
-  res.render('events/drivers', { title: 'Eventos - Motoristas' })
+  Event.findById(req.params.id, function(err, ev){
+    if (ev.recipe.length == 0) {
+      ev.recipe = {};
+    }
+    if(req.body.ofertas) {
+      ev.recipe.offers = req.body.recipe.offers;
+    }
+    console.log(ev);
+    ev.save(function(err) {
+      if(err) {
+        console.log(err);
+        res.status(400).json({ msg: 'Problema ao salvar receita.' })
+      }
+    });
+  });
 });
 
 /* GET offers by ML. */
 router.get('/:id/offers', function(req, res, next) {
-  res.status(200).json('Ofertas mockadas');
+  res.render('events/offers', { title: 'Eventos - Ofertas', eventId: req.params.id })
 });
 
 module.exports = router;
