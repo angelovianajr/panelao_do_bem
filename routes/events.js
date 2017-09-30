@@ -9,10 +9,6 @@ router.get('/', function(req, res, next) {
   res.render('events/index', { title: 'Eventos' });
 });
 
-router.get('/recipes', function(req, res, ext){
-  res.render('events/recipes', { title: 'Recipes' })
-})
-
 /* GET home page. */
 router.get('/register', function(req, res, next) {
   res.render('events/register', { title: 'Eventos' });
@@ -35,8 +31,8 @@ router.post('/', function(req, res, next) {
       user.save(function(err) {
         if(err)
           return res.status(400).json(err);
-
-        res.status(200).json({ msg: "ok" })
+        
+        res.status(200).json({ event: ev, msg: "ok" })
       });
     });
   });
@@ -68,7 +64,6 @@ router.get('/events-by-user', function(req, res, next) {
 
 router.get('/:id/recipe', function(req, res, next) {
   Event.findById(req.params.id, function(err, event) {
-    console.log(event);
     res.render('events/recipes', { title: 'Eventos - Receitas', recipe: event.recipe, eventId: req.params.id });
   });
 });

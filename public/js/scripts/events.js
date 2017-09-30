@@ -9,8 +9,7 @@ function sendTitleAndLocation(event) {
         type: "POST",
         data: $('.form-register-event').serialize()
     }).done(function(res){
-        console.log(res);
-        window.location.replace("recipes");
+        window.location.assign(res.event._id + "/recipe");
         
     }).fail(function(res) {
         showMessage("danger", res.msg)
