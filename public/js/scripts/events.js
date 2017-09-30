@@ -21,7 +21,7 @@ function showMessage(type, text) {
     $('body').prepend("<div class='alert alert-"+ type +"' role='alert'>" + text + "</div>")
 };
 /**
- * Função para 
+ * Função para limpar mensagems
  */
 function cleanMessages() {
     $('.alert').remove();

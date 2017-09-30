@@ -19,21 +19,23 @@ router.post('/', function(req, res, next) {
 
   var event = new Event({
     title: req.body.title,
-    location: [req.body.location.latitude, req.body.location.longitude]
+    location: [req.body.coordinates]
   });
 
   event.save(function(err, ev) {
     if(err) res.status(400).json(err);
+
     User.findById('59cefb0f537c562d1b221f29', function(err, user) {
-      if(user) {
-        user.events.push(ev);
-        user.save(function(err) {
-          if(err) res.status(400).json(err);
-          else res.status(201).json({ msg: 'Evento registrado.' });
-        });
-      } else {
-        res.status(404).json({ msg: 'Usuário não existente.'})
+      if(!user) {
+        return res.status(404).json({ msg: 'Usuário não existente.'})
       }
+
+      user.events.push(ev);
+
+      user.save(function(err) {
+        if(err) 
+          return res.status(400).json(err);
+      });
 
       res.render('events/recipes', { title: 'Eventos - Receitas' });
     });
