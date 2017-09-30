@@ -9,6 +9,11 @@ router.get('/', function(req, res, next) {
   res.render('events/index', { title: 'Eventos' });
 });
 
+/* GET home page. */
+router.get('/register', function(req, res, next) {
+  res.render('events/register', { title: 'Eventos' });
+});
+
 /* POST register events. */
 router.post('/', function(req, res, next) {
 
@@ -29,6 +34,8 @@ router.post('/', function(req, res, next) {
       } else {
         res.status(404).json({ message: 'Usuário não existente.'})
       }
+
+      res.render('events/recipes', { title: 'Eventos - Receitas' });
     });
   });
 });
@@ -70,12 +77,16 @@ router.post('/:id/recipe', function(req, res, next) {
     } else {
       res.status(400).json({ message: 'Campo de receitas inválido.' })
     }
+
+    res.render('events/offers', { title: 'Eventos - Ofertas' })
   })
 });
 
 /* POST offers register. */
 router.post('/:id/offers', function(req, res, next) {
   res.status(201).json('Oferta criada');
+
+  res.render('events/drivers', { title: 'Eventos - Motoristas' })
 });
 
 /* GET offers by ML. */
