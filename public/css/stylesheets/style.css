@@ -7,13 +7,15 @@ a {
   color: #00B7FF;
 }
 
-#map {
-  margin-top: 50px;
-  height: 100%;
+.ingredientes tr td {
+  padding: 5px;
+  background: #eee;
 }
-/* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+
+.ingredientes tr:nth-child(odd) td {
+  background: #ddd;
+}
+
+.ingredientes td.quantidade {
+  width: 150px;
 }

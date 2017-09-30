@@ -2,9 +2,25 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="stylesheet" href="/css/plugins/bootstrap.css">
+    <link rel="stylesheet" href="/css/styles/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <div class="container root">
+        <img src="/logo.png" class="image-logo"/>        
+        <h1 class="title title-parent">PANELÃO DO BEM</h1>        
+        <h3 class="title title-info">
+          É um site para auxiliar organizadores de refeições 
+          beneficentes para comunidades necessitadas e reduzir o desperdício de alimentos em eventos.
+        </h3>        
+        <a href="/users/login" class="btn btn-danger button-start">Já possuo uma conta</a>
+        <br>
+        <a href="/users/register" class="btn btn-danger button-start">Começar</a>
+    </div>
+    <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>
   </body>
 </html>

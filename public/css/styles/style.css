@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#map {
+  margin-top: 50px;
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #f7f4e3;
+  padding: 0;
+}
+
+.root {
+  text-align: center;
+}
+
+.title.title-parent {
+  font-size: 54px;
+  font-family: 'Indie Flower', cursive;
+}
+
+.title.title-info {
+  font-family: 'Indie Flower', cursive;  
+  margin: 20px 35%;
+  font-size: 22px;
+}
+
+.footer {
+  height: 150px;
+  margin-top: 100px;
+  background-color: #830506;
+}
+
+.button-start {
+  margin-top: 10px;
+  width: 200px;
+}

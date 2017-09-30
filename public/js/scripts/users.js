@@ -3,41 +3,41 @@ $(function() {
     $('.form-register').on("submit", register);
 })
 
-function login(event) {
+var login = function(event) {
     event.preventDefault();
     cleanMessages();
     $.ajax({
         url: "/users/login",
         type: "POST",
-        data: $('.form-login').serialize()
+        data: $(this).serialize()
+    }).done(function(){
+        window.location = "/events";
     }).fail(function(res) {
-        console.log(res);
-        showMessage("danger", res.msg)
+        showMessage("danger", res.msg);
     })
 }
 
-function register(event) {
+var register = function(event) {
     event.preventDefault();
     cleanMessages();
     $.ajax({
         url: "/users/register",
         type: "POST",
-        data: $('.form-register').serialize()
+        data: $(this).serialize()
     }).done(function() {
         showMessage("success", "Sucesso ao registrar usuário" )
     }).fail(function(res) {
         var mensages = JSON.parse(res.responseText);
-        console.log(mensages);
         mensages.forEach(function(mensage) {
             showMessage("danger", mensage.msg)
         }, this);
     })
 }
 
-function showMessage(type, text) {
+var showMessage = function(type, text) {
     $('body').prepend("<div class='alert alert-"+ type +"' role='alert'>" + text + "</div>")
 };
 
-function cleanMessages() {
+var cleanMessages = function() {
     $('.alert').remove();
 }
