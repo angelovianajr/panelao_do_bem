@@ -19,15 +19,44 @@ router.get('/signup', function(req, res, next) {
 
 /* POST user register. */
 router.post('/register', function(req, res, next) {
+
+  // TODO: Adicionar outras validações
+  req.checkBody("name", "Name cannot be empty").notEmpty();
+  req.checkBody("email", "Please, use a valid email").isEmail();
+  req.checkBody("password", "Password cannot be empty").notEmpty();
+
+  var errors = req.validationErrors();
+  if (errors)
+    return res.status(400).send(errors);
+
+
+  // Cria o objeto usuário para ser salvo
   var user = new User({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password
   })
 
-  user.save(function(res) {
-    if(res) res.sendStatus(404);
+  // Busca no banco pelo usuário a partir do email dele
+  User.findOne({ email: user.email }, function (err, searchedUser) {
+    if (err)
+      return res.send(err);
+
+    // Verifica se nanhum usuário foi encontrado, ou seja o email é unico
+    if (!searchedUser) {
+      // Salva o usuário e retorna erros
+      user.save(function (err) {
+        if (err)
+          return res.send(err);
+
+        res.status(201).json({ message: 'User registered', data: user });
+      });
+      // Caso o email não seja unico, 
+    } else {
+      res.status(400).json({ message: 'Email alredy in use.' })
+    }
   })
+
 });
 
 
