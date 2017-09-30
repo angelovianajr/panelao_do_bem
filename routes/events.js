@@ -50,6 +50,11 @@ router.post('/:id/recipe', function(req, res, next) {
   Event.findById(req.params.id, function(err, ev){ 
     if(req.body.recipe) {
       ev.recipe = req.body.recipe;
+      ev.save(function(err) {
+        if(err) {
+          res.status(400).json({ message: 'Problema ao salvar receita.' })
+        }
+      })
     } else {
       res.status(400).json({ message: 'Campo de receitas inválido.' })
     }
