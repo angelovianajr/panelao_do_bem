@@ -7,11 +7,9 @@ function login(event) {
     event.preventDefault();
     cleanMessages();
     $.ajax({
-        url: "/login",
+        url: "/users/login",
         type: "POST",
         data: $(this).serialize()
-    }).done(function() {
-        showMessage("success", "Sucesso ao logar usuário" )
     }).fail(function(res) {
         showMessage("danger", mensage.msg)
     })
