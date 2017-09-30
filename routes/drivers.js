@@ -3,6 +3,11 @@ var express = require('express');
 var router = express.Router();
 var Driver = require('../models/driver');
 
+/* GET register drivers */
+router.get('/register', function(req, res, next) {
+    res.render('drivers/index', { Title: 'Regitro de Motorista'})
+})
+
 /* GET POST available drivers. */
 router.route('/')
     .get( function(req, res, next) {
