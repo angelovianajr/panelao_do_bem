@@ -5,8 +5,9 @@
     <title>
         <%= title %>
     </title>
+<link rel="icon" type="image/png" href="/logo.png" />    
     <link rel="stylesheet" href="/css/plugins/bootstrap.css">
-    <link rel='stylesheet' href='/css/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/css/styles/style.css' />
 </head>
 
 <body>
@@ -14,30 +15,21 @@
         <h1>
             <%= title %>
         </h1>
-        <p>Welcome to
-            <%= title %>
-        </p>
         <form class="form-register-recipe">
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Dropdown
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li>Canja de galinha</li>
-                    <li>Caldo de carne</li>
-                    <li>Sopa de legumes</li>
-                </ul>
+            <div class="form-group">
+                <label for="tipo" class="tipo">Escolha a receita</label>
+                <select class="form-control" id="tipo">
+                    <option>Caldo de carne</option>
+                    <option>Sopa de legumes</option>
+                    <option>Sopa de creme de leite</option>
+                </select>
             </div>
-            <button>Enviar</button>
+            <button class="btn btn-primary">Enviar</button>
         </form>
     </section>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-    </script>
+        
     <script src="/js/plugins/jquery.js"></script>
     <script src="/js/plugins/bootstrap.js"></script>
-    <script src="/js/scripts/users.js"></script>
 </body>
 
 </html>

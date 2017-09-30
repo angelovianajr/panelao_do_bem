@@ -8,6 +8,10 @@ function sendTitleAndLocation(event) {
         url:"/events",
         type: "POST",
         data: $('.form-register-event').serialize()
+    }).done(function(res){
+        console.log(res);
+        window.location.replace("recipes");
+        
     }).fail(function(res) {
         showMessage("danger", res.msg)
     })
