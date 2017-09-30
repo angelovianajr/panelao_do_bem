@@ -9,7 +9,13 @@ router.get('/', function(req, res, next) {
 /* POST register events. */
 router.get('/', function(req, res, next) {
   console.log(req.body);
-  res.sendStatus(201)
+  res.sendStatus(201);
+});
+
+/* GET list user events. */
+router.get('/', function(req, res, next) {
+  res.send('Evento mockado');
+  res.sendStatus(200);
 });
 
 module.exports = router;

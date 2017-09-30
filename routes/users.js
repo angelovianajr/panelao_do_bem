@@ -14,7 +14,7 @@ router.get('/signup', function(req, res, next) {
 /* POST user register. */
 router.post('/register', function(req, res, next) {
   console.log(req.body);
-  res.sendStatus(201)
+  res.sendStatus(201);
 });
 
 module.exports = router;
