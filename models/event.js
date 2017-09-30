@@ -7,7 +7,7 @@ var eventSchema = new mongoose.Schema({
         type: { type: String, default: "Point" },
         coordinates: [Number]
     },
-    recipe: [{
+    recipe: {
         name: { type: String },
         feeded_qtd: { type: Number },
         ingredients: [{
@@ -15,7 +15,7 @@ var eventSchema = new mongoose.Schema({
             qtd: { type: Number, default: 1}
         }],
         offers: [mongoose.Schema.Types.ObjectId]
-    }],
+    },
 }, { minimize: false});
 
 // Cria um model com o schema par ao uso
