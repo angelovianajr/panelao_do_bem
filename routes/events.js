@@ -29,10 +29,10 @@ router.post('/', function(req, res, next) {
         user.events.push(ev);
         user.save(function(err) {
           if(err) res.status(400).json(err);
-          else res.status(201).json({ message: 'Evento registrado.' });
+          else res.status(201).json({ msg: 'Evento registrado.' });
         });
       } else {
-        res.status(404).json({ message: 'Usuário não existente.'})
+        res.status(404).json({ msg: 'Usuário não existente.'})
       }
 
       res.render('events/recipes', { title: 'Eventos - Receitas' });
@@ -46,7 +46,7 @@ router.get('/products', function(req, res, next) {
     if(prod.length) {
       res.status(200).json(prod);  
     } else {
-      res.status(404).json({ message: 'Nenhum produto encontrado.' })
+      res.status(404).json({ msg: 'Nenhum produto encontrado.' })
     }
   })
 })
@@ -59,7 +59,7 @@ router.get('/:id', function(req, res, next) {
         res.status(200).json(ev);
       });
     } else {
-      res.status(404).json({ message: 'Não foram encontrados eventos para o seu usuário.' });
+      res.status(404).json({ msg: 'Não foram encontrados eventos para o seu usuário.' });
     }
   })
 });
@@ -71,11 +71,11 @@ router.post('/:id/recipe', function(req, res, next) {
       ev.recipe = req.body.recipe;
       ev.save(function(err) {
         if(err) {
-          res.status(400).json({ message: 'Problema ao salvar receita.' })
+          res.status(400).json({ msg: 'Problema ao salvar receita.' })
         }
       })
     } else {
-      res.status(400).json({ message: 'Campo de receitas inválido.' })
+      res.status(400).json({ msg: 'Campo de receitas inválido.' })
     }
 
     res.render('events/offers', { title: 'Eventos - Ofertas' })

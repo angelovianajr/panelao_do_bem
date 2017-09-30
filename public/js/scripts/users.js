@@ -9,9 +9,10 @@ function login(event) {
     $.ajax({
         url: "/users/login",
         type: "POST",
-        data: $(this).serialize()
+        data: $('.form-login').serialize()
     }).fail(function(res) {
-        showMessage("danger", mensage.msg)
+        console.log(res);
+        showMessage("danger", res.msg)
     })
 }
 

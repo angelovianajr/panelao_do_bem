@@ -1,11 +1,15 @@
 $(function() {
-
+    $('.form-register-event').on("submit", sendTitleAndLocation)
 })
 
 function sendTitleAndLocation(event) {
     event.preventDefault();
     $.ajax({
-        url:""
+        url:"/events",
+        type: "POST",
+        data: $('.form-register-event').serialize()
+    }).fail(function(res) {
+        showMessage("danger", res.msg)
     })
 }
 /**
@@ -16,7 +20,9 @@ function sendTitleAndLocation(event) {
 function showMessage(type, text) {
     $('body').prepend("<div class='alert alert-"+ type +"' role='alert'>" + text + "</div>")
 };
-
+/**
+ * Função para 
+ */
 function cleanMessages() {
     $('.alert').remove();
 }
