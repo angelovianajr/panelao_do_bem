@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('need-for-panelao:server');
 var http = require('http');
+var config = require('./config');
+var mongoose = require('mongoose');
 
 /**
  * Get port from environment and store in Express.
@@ -14,6 +16,14 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+/**
+ * Set database connection with mongo.
+ */
+var dbConfigUrl = config.db;
+// mongoose.connect('mongodb://localhost:27017/admin');
+mongoose.connect(dbConfigUrl);
+
 
 /**
  * Create HTTP server.
