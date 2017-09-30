@@ -11,4 +11,10 @@ router.get('/signup', function(req, res, next) {
   res.render('users/signup', { title: 'Cadastro' });
 });
 
+/* POST user register. */
+router.get('/register', function(req, res, next) {
+  req.body;
+  res.sendStatus(200)
+});
+
 module.exports = router;
