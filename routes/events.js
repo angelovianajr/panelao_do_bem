@@ -62,14 +62,14 @@ router.get('/events-by-user', function(req, res, next) {
   })
 });
 
-router.get('/:id/recipe', function(req, res, next) {
+router.get('/:id/recipes', function(req, res, next) {
   Event.findById(req.params.id, function(err, event) {
     res.render('events/recipes', { title: 'Eventos - Receitas', recipe: event.recipe, eventId: req.params.id });
   });
 });
 
 /* POST recipe register. */
-router.post('/:id/recipe', function(req, res, next) {
+router.post('/:id/recipes', function(req, res, next) {
   Event.findById(req.params.id, function(err, ev){
     if(req.body.recipe) {
       ev.recipe.name = req.body.recipe.name;
