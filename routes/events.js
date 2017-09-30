@@ -2,10 +2,16 @@ var express = require('express');
 var router = express.Router();
 var Event = require('../models/event');
 var User = require('../models/user');
+var Product = require('../models/product');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('events/index', { title: 'Eventos' });
+});
+
+/* GET home page. */
+router.get('/register', function(req, res, next) {
+  res.render('events/register', { title: 'Eventos' });
 });
 
 /* POST register events. */
@@ -28,9 +34,22 @@ router.post('/', function(req, res, next) {
       } else {
         res.status(404).json({ message: 'Usuário não existente.'})
       }
+
+      res.render('events/recipes', { title: 'Eventos - Receitas' });
     });
   });
 });
+
+/* GET products */
+router.get('/products', function(req, res, next) {
+  Product.find(function(err, prod) {
+    if(prod.length) {
+      res.status(200).json(prod);  
+    } else {
+      res.status(404).json({ message: 'Nenhum produto encontrado.' })
+    }
+  })
+})
 
 /* GET list user events. */
 router.get('/:id', function(req, res, next) {
@@ -58,27 +77,21 @@ router.post('/:id/recipe', function(req, res, next) {
     } else {
       res.status(400).json({ message: 'Campo de receitas inválido.' })
     }
-  })
-});
 
-/* GET recipes by user. */
-router.get('/:id/recipe', function(req, res, next) {
-  res.status(200).json('Receitas mockadas');
+    res.render('events/offers', { title: 'Eventos - Ofertas' })
+  })
 });
 
 /* POST offers register. */
 router.post('/:id/offers', function(req, res, next) {
   res.status(201).json('Oferta criada');
+
+  res.render('events/drivers', { title: 'Eventos - Motoristas' })
 });
 
 /* GET offers by ML. */
 router.get('/:id/offers', function(req, res, next) {
   res.status(200).json('Ofertas mockadas');
-});
-
-/* GET offers by ML. */
-router.get('/:id/drivers', function(req, res, next) {
-  res.status(200).json('Motoristas mockados');
 });
 
 module.exports = router;

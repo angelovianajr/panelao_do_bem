@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var driverSchema = new mongoose.Schema({
     name: String,
     email: { type: String, required: true, unique: true },
-    status: { type: boolean, default: true },
+    status: { type: Boolean, default: true },
     city: { type: String },
     cell: { type: String }
 });
