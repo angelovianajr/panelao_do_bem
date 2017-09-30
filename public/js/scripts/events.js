@@ -11,7 +11,6 @@ function sendTitleAndLocation(event) {
     }).done(function(res){
         localStorage.setItem('id_event', res.id);
         window.location.replace("recipes");
-        
     }).fail(function(res) {
         showMessage("danger", res.msg)
     })

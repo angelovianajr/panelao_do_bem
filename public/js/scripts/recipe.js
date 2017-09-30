@@ -67,27 +67,16 @@ function toggleQuantidade(mostrar) {
     $('.quantidade').parent().hide();
   }
 }
-
-function cliqueNoSalvar() {
-  var params = {
-    recipe: $('.receita').val(),
-    feeded_qtd: $('.quantidade').val(),
-    ingredients: []
-  };
-  $.ajax({
-    url: $('.formulario').attr('action'),
-    method: 'POST',
-    data: params,
-    success: function() {
-      console.log('ok');
-    }
-  })
-
-
   function enviaFormularioReceitas(event) {
     event.preventDefault();
-    $.ajax(
-      url:"/"
-    )
+    var id = localStorage.getItem('id_event');
+    var id_str = JSON.stringify(id);
+    $.ajax({
+      url: id+"/recipes",
+      type: "POST",
+      data: $(this).serialize()
+    }).done(function() {
+      window.location.replace("map")
+    })
   }
-}
+

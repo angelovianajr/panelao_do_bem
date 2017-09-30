@@ -27,16 +27,14 @@ router.post('/', function(req, res, next) {
 
   event.save(function(err, ev) {
     if(err) res.status(400).json(err);
-    var id = '59cefb0f537c562d1b221f29';
-    User.findById(id, function(err, user) {
+    User.findById('59cefb0f537c562d1b221f29', function(err, user) {
       if(!user) {
         return res.status(404).json({ msg: 'Usuário não existente.'})
       }
       user.save(function(err) {
         if(err)
           return res.status(400).json(err);
-
-        res.status(200).json({ msg: "ok", id: id })
+        res.status(200).json({ msg: "ok", id: event._id })
       });
     });
   });
@@ -54,7 +52,7 @@ router.get('/products', function(req, res, next) {
 })
 
 /* GET list user events. */
-router.get('/:id', function(req, res, next) {
+router.get('/:id/listUsers', function(req, res, next) {
   User.findById(req.params.id, function(err, user) {
     if(user) {
       Event.find({_id: {$in: user.events}}, function(err, ev) {
@@ -77,20 +75,21 @@ router.get('/:id/recipe', function(req, res, next) {
 });
 
 /* POST recipe register. */
-router.post('/:id/recipe', function(req, res, next) {
+router.post('/:id/recipes', function(req, res, next) {
+  
   Event.findById(req.params.id, function(err, ev){
-    if(req.body.recipe) {
-      ev.recipe = req.body.recipe;
+    if(req.body) {
+      ev.recipe = req.body;
       ev.save(function(err) {
         if(err) {
-          res.status(400).json({ msg: 'Problema ao salvar receita.' })
+          return res.status(400).json({ msg: 'Problema ao salvar receita.' })
         }
       })
     } else {
-      res.status(400).json({ msg: 'Campo de receitas inválido.' })
+      return res.status(400).json({ msg: 'Campo de receitas inválido.' })
     }
 
-    res.render('events/offers', { title: 'Eventos - Ofertas' })
+    return res.render('events/offers', { title: 'Eventos - Ofertas' })
   })
 });
 
@@ -107,7 +106,7 @@ router.get('/:id/offers', function(req, res, next) {
 });
 
 router.get('/map', function(req, res, next) {
-  res.status(200).render('events/map')
+  res.status(200).render('events/map', { title: 'Recipes'})
 })
 
 module.exports = router;
