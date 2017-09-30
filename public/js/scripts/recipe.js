@@ -8,7 +8,7 @@ var produtos = [
 ];
 
 $(document).ready(function() {
-  $('.form-register-recipe').on("submit", enviaFormularioReceitas);
+  // $('.form-register-recipe').on("submit", enviaFormularioReceitas);
 });
 
 function atualizarReceita() {
@@ -80,3 +80,19 @@ function toggleQuantidade(mostrar) {
     })
   }
 
+function cliqueNoSalvar() {
+  var params = {
+    recipe: $('.receita').val(),
+    feeded_qtd: $('.quantidade').val(),
+    ingredients: []
+  };
+  $.ajax({
+    url: $('.formulario').attr('action'),
+    method: 'POST',
+    data: params,
+    success: function() {
+      var id = $('.formulario').attr('action').replace('/recipes', '/offers');
+      location.href = id;
+    }
+  })
+}
