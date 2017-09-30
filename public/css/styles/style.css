@@ -32,17 +32,27 @@ html, body {
 
 .title.title-info {
   font-family: 'Indie Flower', cursive;  
-  margin: 20px 35%;
+  margin: 30px 20%;
   font-size: 22px;
 }
 
-.footer {
-  height: 150px;
-  margin-top: 100px;
-  background-color: #830506;
+@media(max-width: 720px) {
+  .image-logo {
+    height: 200px;
+  }
+}
+
+.footer-title {
+  float: right;
+  color: #f4f4f4;
 }
 
 .button-start {
   margin-top: 10px;
   width: 200px;
+}
+
+.btn.btn-danger {
+  font-family: 'Indie Flower', cursive;
+  background-color: #830506;
 }

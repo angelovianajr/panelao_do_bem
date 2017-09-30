@@ -87,7 +87,7 @@ function cliqueNoSalvar() {
   function enviaFormularioReceitas(event) {
     event.preventDefault();
     $.ajax(
-      url:""
+      url:"/"
     )
   }
 }
