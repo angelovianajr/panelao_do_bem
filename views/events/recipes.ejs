@@ -12,12 +12,10 @@
 </head>
 
 <body>
+    <div class="container">
     <h1>
         <%= title %>
     </h1>
-    <p>Welcome to
-        <%= title %>
-    </p>
     <form class="form-register-recipe formulario" action="/events/<%= eventId %>/recipes" method="POST">
         <div class="form-group">
           <label class="control-label">Qual receita será preparada?</label>
@@ -39,6 +37,7 @@
         </div>
         <button type="button" class="btn btn-success" onclick="cliqueNoSalvar()">Avançar</button>
     </form>
+  </div>
     <script src="/js/plugins/jquery.js"></script>
     <script src="/js/plugins/bootstrap.js"></script>
     <script src="/js/scripts/recipe.js"></script>

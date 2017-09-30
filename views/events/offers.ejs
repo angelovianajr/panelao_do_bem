@@ -6,7 +6,7 @@
         <%= title %>
     </title>
     <link rel="stylesheet" href="/css/plugins/bootstrap-cosmo.css">
-    <meta name="viewport" content="width=device-width, user-scalable=no">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel='stylesheet' href='/css/stylesheets/style.css' />
 </head>
 
@@ -15,13 +15,10 @@
         <h1>
             <%= title %>
         </h1>
-        <p>Welcome to
-            <%= title %>
-        </p>
 
         <form class="form-register formulario" action="/events/<%= eventId %>/offers" method="POST">
 
-          <div id="map" style="height: 500px;"></div>
+          <div id="map" style="height: 500px;"></div><br>
           <button type="button" class="btn btn-success" onclick="cliqueNoSalvar()">Avançar</button>
         </div>
     </section>

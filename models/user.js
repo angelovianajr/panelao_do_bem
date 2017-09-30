@@ -16,7 +16,7 @@ userSchema.pre('save', function (next) {
     // Verifica se a senha do usuário foi modificada ou é nova
     if (this.isModified('password') || this.isNew) {
         bcrypt.genSalt(16, function (err, salt) {
-            if (err) return next(err);a
+            if (err) return next(err);
             // Gera um hash com a senha e um salt
             bcrypt.hash(user.password, salt, null, function (err, hash) {
                 if (err) return next(err);
