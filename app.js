@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -11,8 +12,9 @@ var events = require('./routes/events');
 var drivers = require('./routes/drivers');
 var validator = require('express-validator');
 
-
 var app = express();
+
+var authMiddl = require('./middleware/auth');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,8 +30,16 @@ app.use(validator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// session
+app.use(session({
+  secret: 'nullifcode',
+  resave: false,
+  saveUninitialized: true })); // session secret
+
 app.use('/', index);
+
 app.use('/users', users);
+app.use(authMiddl);
 app.use('/events', events);
 app.use('/drivers', drivers);
 
