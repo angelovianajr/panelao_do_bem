@@ -9,19 +9,21 @@
   </head>
   <body>
     <section class="container">
-
-        <h1><%= title %></h1>
-        <form class="form-login">
-            <div class="form-group">
-                <label for="Email">Email adress</label>
-                <input type="email" name="email" class="form-control" id="Email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input type="password" name="password" class="form-control" id="Password" placeholder="Password">
-            </div>
-            <button class="btn btn-default">Enviar</button>
-        </form>
+        <div class="row">
+            
+            <form class="form-login col-sm-6 col-sm-offset-3">
+                <h1><%= title %></h1>
+                <div class="form-group">
+                    <label for="Email">Email adress</label>
+                    <input type="email" name="email" class="form-control" id="Email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" name="password" class="form-control" id="Password" placeholder="Password">
+                </div>
+                <button class="btn btn-default">Enviar</button>
+            </form>
+        </div>
     </section>
         <script src="/js/plugins/jquery.js"></script>
         <script src="/js/plugins/bootstrap.js"></script>       
