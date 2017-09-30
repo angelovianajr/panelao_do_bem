@@ -18,7 +18,7 @@
     <p>Welcome to
         <%= title %>
     </p>
-    <form class="form-register-recipe formulario" action="/events/<%= eventId %>/recipe" method="POST">
+    <form class="form-register-recipe formulario" action="/events/<%= eventId %>/recipes" method="POST">
         <div class="form-group">
           <label class="control-label">Qual receita será preparada?</label>
           <select name="receita" class="receita form-control" onchange="atualizarReceita()">
