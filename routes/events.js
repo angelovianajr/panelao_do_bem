@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   User.findById(req.params.id, function(err, user) {
     if(user) {
-      Event.find(user.events, function(err, ev) {
+      Event.find({_id: {$in: user.events}}, function(err, ev) {
         res.status(200).json(ev);
       });
     } else {
