@@ -36,11 +36,6 @@ html, body {
   font-size: 22px;
 }
 
-.image-logo {
-  background-color: #fff;
-  border-radius: 360px;
-}
-
 @media(max-width: 720px) {
   .image-logo {
     height: 200px;
