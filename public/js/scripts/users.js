@@ -6,7 +6,7 @@ $(function() {
 function login(event) {
     event.preventDefault();
     $.ajax({
-        url: "login",
+        url: "/users/login",
         type: "POST",
         data: $(this).serialize(),
         success: function(res) {
