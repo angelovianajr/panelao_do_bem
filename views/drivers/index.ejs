@@ -5,17 +5,16 @@
     <title>
         <%= Title %>
     </title>
+<link rel="icon" type="image/png" href="/logo.png" />
     <link rel="stylesheet" href="/css/plugins/bootstrap.css">
-    <link rel='stylesheet' href='/css/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/css/styles/style.css' />
+    <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </head>
 
 <body>
     <h1>
         <%= Title %>
     </h1>
-    <p>Welcome to
-        <%= Title %>
-    </p>
     <form class="form-register">
         <div class="form-group">
             <label for="Name">Nome</label>
@@ -26,13 +25,10 @@
             <input type="email" class="form-control" name="email" id="Email" placeholder="Email">
         </div>
         <div class="form-group">
-            <label for="City">Cidade</label>
-            <input type="text" class="form-control" name="city" id="City" placeholder="Cidade">
-        </div>
-        <div class="form-group">
             <label for="Cell">Telefone</label>
             <input type="text" class="form-control" name="cell" id="Cell" placeholder="Telefone">
         </div>
+        <input type="hidden" class="form-control" name="city" id="City" placeholder="Cidade">
         <button class="btn btn-default">Enviar</button>
     </form>
     <script src="/js/plugins/jquery.js"></script>

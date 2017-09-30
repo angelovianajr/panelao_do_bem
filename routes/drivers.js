@@ -7,11 +7,15 @@ var Driver = require('../models/driver');
 router.get('/register', function(req, res, next) {
     res.render('drivers/index', { Title: 'Regitro de Motorista'})
 })
+/* GET register drivers */
+router.get('/list', function(req, res, next) {
+    res.render('events/drivers', { Title: 'Lista de Motoristas'})
+})
 
 /* GET POST available drivers. */
 router.route('/')
     .get( function(req, res, next) {
-        Driver.find(function(err, driver) {
+        Driver.find( { city: req.query.city }, function(err, driver) {
             if(driver.length) {
                 res.status(200).json(driver);                    
             } else {

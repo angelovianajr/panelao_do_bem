@@ -3,12 +3,14 @@
 <html>
   <head>
     <title><%= title %></title>
+<link rel="icon" type="image/png" href="/logo.png" />    
     <link rel="stylesheet" href="/css/plugins/bootstrap.css">
-    <link rel='stylesheet' href='/css/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/css/styles/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <section class="container">
+
+        <h1><%= title %></h1>
         <form class="form-login">
             <div class="form-group">
                 <label for="Email">Email adress</label>
@@ -20,8 +22,9 @@
             </div>
             <button class="btn btn-default">Enviar</button>
         </form>
+    </section>
         <script src="/js/plugins/jquery.js"></script>
         <script src="/js/plugins/bootstrap.js"></script>       
         <script src="/js/scripts/users.js"></script>
     </body>
-</html>
+    </html>
