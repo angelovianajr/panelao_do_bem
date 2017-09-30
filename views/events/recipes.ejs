@@ -33,6 +33,7 @@
           <input type="text" name="quantidade" class="quantidade form-control" onchange="atualizarIngredientes()">
         </div>
         <div class="panel panel-default ingredientes" style="display: none;">
+          <input type="hidden" name="ingredients">
           <div class="panel-heading">Você irá precisar destes ingredientes:</div>
           <table class="table table-bordered"></table>
         </div>
@@ -42,37 +43,4 @@
     <script src="/js/plugins/bootstrap.js"></script>
     <script src="/js/scripts/recipe.js"></script>
 </body>
-
-        <h1>
-            <%= title %>
-        </h1>
-        <p>Welcome to
-            <%= title %>
-        </p>
-        <form class="form-register-recipe formulario">
-            <div class="form-group">
-                <label class="control-label">Qual receita será preparada?</label>
-                <select name="receita" class="receita form-control" onchange="atualizarReceita()">
-                    <option value="">-- Selecione --</option>
-                    <option value="sopa-de-legumes">Sopa de Legumes</option>
-                    <option value="canja">Canja</option>
-                    <option value="carreteiro">Carreteiro</option>
-                </select>
-            </div>
-            <div class="form-group" style="display: none;">
-                <label class="control-label">Quantas pessoas você pretende ajudar?</label>
-                <input type="text" name="quantidade" class="quantidade form-control" onchange="atualizarIngredientes()">
-            </div>
-            <div class="panel panel-default ingredientes" style="display: none;">
-                <div class="panel-heading">Você irá precisar destes ingredientes:</div>
-                <table class="table table-bordered"></table>
-            </div>
-            <button type="submit" class="btn btn-success">Avançar</button>
-        </form>
-        <script src="/js/plugins/jquery.js"></script>
-        <script src="/js/plugins/bootstrap.js"></script>
-        <script src="/js/scripts/recipe.js"></script>
-    </section>
-    </body>
-
-    </html>
+</html>
