@@ -7,6 +7,10 @@ var Driver = require('../models/driver');
 router.get('/register', function(req, res, next) {
     res.render('drivers/index', { Title: 'Regitro de Motorista'})
 })
+/* GET register drivers */
+router.get('/list', function(req, res, next) {
+    res.render('events/drivers', { Title: 'Lista de Motoristas'})
+})
 
 /* GET POST available drivers. */
 router.route('/')
