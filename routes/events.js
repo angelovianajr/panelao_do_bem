@@ -106,4 +106,8 @@ router.get('/:id/offers', function(req, res, next) {
   res.status(200).json('Ofertas mockadas');
 });
 
+router.get('/map', function(req, res, next) {
+  res.status(200).render('events/map')
+})
+
 module.exports = router;

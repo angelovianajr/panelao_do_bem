@@ -8,6 +8,7 @@ var produtos = [
 ];
 
 $(document).ready(function() {
+  $('.form-register-recipe').on("submit", enviaFormularioReceitas);
 });
 
 function atualizarReceita() {
@@ -81,4 +82,12 @@ function cliqueNoSalvar() {
       console.log('ok');
     }
   })
+
+
+  function enviaFormularioReceitas(event) {
+    event.preventDefault();
+    $.ajax(
+      url:""
+    )
+  }
 }
