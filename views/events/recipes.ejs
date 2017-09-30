@@ -11,25 +11,35 @@
 </head>
 
 <body>
-    <section class="container">
-        <h1>
-            <%= title %>
-        </h1>
-        <form class="form-register-recipe">
-            <div class="form-group">
-                <label for="tipo" class="tipo">Escolha a receita</label>
-                <select class="form-control" id="tipo">
-                    <option>Caldo de carne</option>
-                    <option>Sopa de legumes</option>
-                    <option>Sopa de creme de leite</option>
-                </select>
-            </div>
-            <button class="btn btn-primary">Enviar</button>
-        </form>
-    </section>
-        
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %>
+    </p>
+    <form class="form-register-recipe formulario" action="/events/<%= eventId %>/recipe" method="POST">
+        <div class="form-group">
+          <label class="control-label">Qual receita será preparada?</label>
+          <select name="receita" class="receita form-control" onchange="atualizarReceita()">
+            <option value="">-- Selecione --</option>
+            <option value="sopa-de-legumes">Sopa de Legumes</option>
+            <option value="canja">Canja</option>
+            <option value="carreteiro">Carreteiro</option>
+          </select>
+        </div>
+        <div class="form-group" style="display: none;">
+          <label class="control-label">Quantas pessoas você pretende ajudar?</label>
+          <input type="text" name="quantidade" class="quantidade form-control" onchange="atualizarIngredientes()">
+        </div>
+        <div class="panel panel-default ingredientes" style="display: none;">
+          <div class="panel-heading">Você irá precisar destes ingredientes:</div>
+          <table class="table table-bordered"></table>
+        </div>
+        <button type="button" class="btn btn-success" onclick="cliqueNoSalvar()">Avançar</button>
+    </form>
     <script src="/js/plugins/jquery.js"></script>
     <script src="/js/plugins/bootstrap.js"></script>
+    <script src="/js/scripts/recipe.js"></script>
 </body>
 
 </html>

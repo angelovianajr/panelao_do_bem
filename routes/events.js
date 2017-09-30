@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
         return res.status(404).json({ msg: 'Usuário não existente.'})
       }
       user.save(function(err) {
-        if(err) 
+        if(err)
           return res.status(400).json(err);
 
         res.status(200).json({ msg: "ok" })
@@ -46,7 +46,7 @@ router.post('/', function(req, res, next) {
 router.get('/products', function(req, res, next) {
   Product.find(function(err, prod) {
     if(prod.length) {
-      res.status(200).json(prod);  
+      res.status(200).json(prod);
     } else {
       res.status(404).json({ msg: 'Nenhum produto encontrado.' })
     }
@@ -66,9 +66,19 @@ router.get('/:id', function(req, res, next) {
   })
 });
 
+router.get('/:id/recipe', function(req, res, next) {
+  User.findById('59cefb0f537c562d1b221f29', function(err, user) {
+    if(!user) {
+      return res.status(404).json({ msg: 'Usuário não existente.'})
+    }
+
+    res.render('events/recipes', { title: 'Eventos - Receitas', recipe: user.recipe, eventId: req.params.id });
+  });
+});
+
 /* POST recipe register. */
 router.post('/:id/recipe', function(req, res, next) {
-  Event.findById(req.params.id, function(err, ev){ 
+  Event.findById(req.params.id, function(err, ev){
     if(req.body.recipe) {
       ev.recipe = req.body.recipe;
       ev.save(function(err) {

@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.ingredientes tr td {
+  padding: 5px;
+  background: #eee;
+}
+
+.ingredientes tr:nth-child(odd) td {
+  background: #ddd;
+}
+
+.ingredientes td.quantidade {
+  width: 150px;
+}
