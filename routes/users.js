@@ -12,7 +12,7 @@ router.get('/signup', function(req, res, next) {
 });
 
 /* POST user register. */
-router.get('/register', function(req, res, next) {
+router.post('/register', function(req, res, next) {
   req.body;
   res.sendStatus(200)
 });
