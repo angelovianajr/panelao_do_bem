@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
 
 /* GET login layout. */
 router.get('/login', function(req, res, next) {
@@ -18,8 +19,15 @@ router.get('/signup', function(req, res, next) {
 
 /* POST user register. */
 router.post('/register', function(req, res, next) {
-  console.log(req.body);
-  res.sendStatus(201);
+  var user = new User({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
+  })
+
+  user.save(function(res) {
+    if(res) res.sendStatus(404);
+  })
 });
 
 

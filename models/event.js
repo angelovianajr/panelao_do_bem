@@ -11,9 +11,14 @@ var eventSchema = new mongoose.Schema({
         name: { type: String },
         feeded_qtd: { type: Number },
         ingredients: [{
-            product: { mongoose.Schema.Types.ObjectId },
+            product: { type: mongoose.Schema.Types.ObjectId },
             qtd: { type: Number, default: 1}
         }],
         offers: [mongoose.Schema.Types.ObjectId]
     }],
 });
+
+// Cria um model com o schema par ao uso
+var Event = mongoose.model('Event', eventSchema);
+
+module.exports = Event;
