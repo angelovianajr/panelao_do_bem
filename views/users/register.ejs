@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/css/plugins/bootstrap.css">
     <link rel='stylesheet' href='/css/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-        <form class="form-register">
-            <div class="form-group">
-                <label for="Email">Email</label>
-                <input type="email" class="form-control" id="Email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="Name">Nome</label>
-                <input type="text" class="form-control" id="Name" placeholder="Nome">
-            </div>
-            <div class="form-group">
-                <label for="Password">Senha</label>
-                <input type="password" class="form-control" id="Password" placeholder="Senha">
-            </div>
-            <button>Enviar</button>
-        </form>
-        <script src="/js/plugins/jquery.js"></script>
-        <script src="/js/plugins/bootstrap.js"></script>            
-        <script src="/js/scripts/users.js"></script>
-    </body>
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %>
+    </p>
+    <form class="form-register">
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" name="email" id="Email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="Name">Nome</label>
+            <input type="text" class="form-control" name="name" id="Name" placeholder="Nome">
+        </div>
+        <div class="form-group">
+            <label for="Password">Senha</label>
+            <input type="password" class="form-control" name="password" id="Password" placeholder="Senha">
+        </div>
+        <button>Enviar</button>
+    </form>
+    <script src="/js/plugins/jquery.js"></script>
+    <script src="/js/plugins/bootstrap.js"></script>
+    <script src="/js/scripts/users.js"></script>
+</body>
+
 </html>

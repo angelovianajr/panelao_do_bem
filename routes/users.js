@@ -42,11 +42,11 @@ router.route('/register')
             if (err)
               return res.send(err);
     
-            res.status(201).json({ message: 'User registered', data: user });
+            res.status(201).json([{ msg: 'User registered', data: user }]);
           });
           // Caso o email não seja unico, 
         } else {
-          res.status(400).json({ message: 'Email alredy in use.' })
+          res.status(400).json([{ msg: 'Email alredy in use.' }])
         }
       })
     
